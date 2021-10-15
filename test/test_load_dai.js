@@ -16,14 +16,14 @@ const dais = ethers.utils.parseUnits("10.0", 18);
 
 const ack1 = '0xab3776a8BEF68c31487B64bb548238F8f11A4332' // Premier compte (50 Dai)
 let ack2 = '0x1563982C1dE544DD5c8fc915a617C6983D380e90' // Deuxième compte (0 Dai)
-const contract = '0xbbB7B142b690e08b8A90Ba4d451A3D3af22F20E4'
+const contract = '0xbbB7B142b690e08b8A90Ba4d451A3D3af22F20E4' // Adresse de déploiement du contrat
 
 let dai // Dai Contract from Kovan Testnet
 
 async function main(){
     console.log(chalk.greenBright('<<<<<START>>>>>>'))
 	dai = await loadContract(dai_ABI,dai_addr)
-    ack2 = contract
+    ack2 = contract // ****** ATTENTION Cette ligne permet de transferer des Dai depuis un compte vers le contrat
     if ( dai ){
         console.log(chalk.greenBright('Contract founded : '+dai.options.address))
         console.log(chalk.greenBright('1 Dai value is : '+dais))
